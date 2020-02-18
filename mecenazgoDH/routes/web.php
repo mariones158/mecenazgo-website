@@ -34,19 +34,14 @@ Route::get('/projects/less', 'ProjectsController@less');
 
 //CARPETA JSON
 // Lista el JSON de proyectos como objetos
-Route::get('/products/json', 'ProductsController@listar');
+Route::get('/projects/json', 'ProjectsController@listar');
 
 // Lista el JSON de usuarios como objetos
 Route::get('/users/json', 'UsersController@listar');
 
 
 
-//Route::get('/deposit/payment', 'PaymentCardsController@create');
-// Ruta para mostrar el formulario de carga de Tarjeta
-//Route::patch('/deposit/payment/{id}', 'PaymentCardsController@create_select');
-// Ruta anexa a Payment para elegir un medio de pago (metodo patch)
-//Route::post('/deposit/payment', 'PaymentCardsController@store');
-// Ruta para guardar el registro de una tarjeta lo hacemos con (metodo post)
+
 
 
 
@@ -80,7 +75,8 @@ Route::get('/users/json', 'UsersController@listar');
     // Muestra la donacion de un proyecto
 });
 
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
