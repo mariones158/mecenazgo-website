@@ -16,8 +16,12 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'user_type_id','name',
+        'firstname','lastname','indenfication_number',
+        'avatar','email','password','amount'
     ];
+
+    protected $table = 'users';
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +40,26 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getFullName() {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
+    public function userType(){
+        return $this->belongsTo('App\User_Type_id');
+     }
+
+    public function project(){
+        return $this->belongsTo('App\Project_id');
+        }
+
+    public function donations(){
+    return $this->belongsToMany('App\Donations_id');
+    }
+
+    public function deposits(){
+    return $this->belongsToMany('App\Deposits_id');
+    }
+
+
 }

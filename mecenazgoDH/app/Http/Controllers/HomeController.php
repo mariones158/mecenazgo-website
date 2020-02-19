@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+
+        $topProjects = Project::orderBy('more_popular')->take(3)->get();
+
+
+       return view('home')->with('topProjects', $topProjects);
+
+        //return view('home');
     }
 }

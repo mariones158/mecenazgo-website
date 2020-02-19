@@ -56,23 +56,40 @@ Route::get('/users/json', 'UsersController@listar');
 	// Ruta para actualizar el perfil del usuario (metodo patch)
 
 
-    //DEPOSITOS
-    Route::post('/deposit', 'DepositsController@store');
-    // Ruta para generar una nuevo deposito (metodo post)
-    Route::get('/deposit/review', 'DepositsController@show');
-    // Ruta es para  poder ver el deposito final y poder confirmar o cancelar el deposito
-    Route::patch('/deposit/review', 'DepositsController@edit');
-        // Ruta es para editar el deposito final se utiliza el (metodo patch)
-    Route::patch('/deposit/confirm', 'DepositsController@update');
-        // Ruta para confirmar el deposito y poder cerrar la operacion
-    Route::delete('/deposit/confirm', 'DepositsController@destroy');
-        // Ruta para cancelar el deposito y cancelar la operacion
+    //DEPOSITOS(ingreso de dinero de los donantes)
 
-    //DONACIONES
+
+    Route::get('/deposits', 'DepositsController@show');
+    // Muestra TODOS los depositos de dinero a mi cuenta  (tus ingresos)
+
+    Route::patch('/deposit/confirm', 'DepositsController@update');
+    // Ruta para confirmar ingreso de dinero del aportante
+
+
+//TUVISTE EL INGRSO DE TAL USUARIO
+
+//DONACIONES
     Route::get('/donation', 'DonationsController@index');
-    // Muestra TODOS las donaciones de TODOS las proyectos
+    // Muestra TODOS las donaciones realizadas (tus donaciones)
+
+    Route::post('/donation', 'DonationsController@store');
+    // Ruta para generar una nueva donacion (metodo post)
+
     Route::get('/donation/{id}', 'DonationsController@show');
     // Muestra la donacion de un proyecto
+
+    Route::patch('/donation/review', 'DonationsController@edit');
+    // Ruta es para editar la donacion final se utiliza el (metodo patch)
+
+    Route::get('/donation/review', 'DonationsController@show');
+    // Ruta es para  poder ver la donacion final y poder confirmar o cancelar la donacion
+
+    Route::patch('/donation/confirm', 'DonationsController@update');
+    // Ruta para confirmar la donacion  y poder cerrar la operacion
+
+    Route::delete('/donation/confirm', 'DonationsController@destroy');
+        // Ruta para cancelar la donacion y anular la gestion
+
 });
 
 
