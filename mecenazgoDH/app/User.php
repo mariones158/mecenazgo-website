@@ -54,11 +54,11 @@ class User extends Authenticatable
         }
 
     public function donations(){
-    return $this->belongsToMany('App\Donations_id');
+    return $this->hasMany('App\Donations_id');
     }
 
     public function deposits(){
-    return $this->belongsToMany('App\Deposits_id');
+    return $this->hasMany('App\Deposits_id');
     }
 
 

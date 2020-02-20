@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Deposit;
+use App\Donation;
 use Illuminate\Http\Request;
 
 class DepositsController extends Controller
@@ -46,7 +47,7 @@ class DepositsController extends Controller
      */
     public function show(Deposit $deposit)
     {
-        //
+
     }
 
     /**

@@ -19,7 +19,7 @@ class Deposit extends Model
     public function donations(){
     return $this->belongsToMany('App\Donations_id');
 }
-    }
+
 
 
 

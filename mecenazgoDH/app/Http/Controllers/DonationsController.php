@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Donation;
+use App\User;
 use Illuminate\Http\Request;
 
 class DonationsController extends Controller
@@ -14,7 +15,11 @@ class DonationsController extends Controller
      */
     public function index()
     {
-        //
+        $donations = Donation::all();
+      return view('sponsor.donation.index',[
+          'title' => 'Listado de donaciones',
+          'donations' => $donations,
+        ]);
     }
 
     /**
@@ -35,7 +40,16 @@ class DonationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate ($request,
+      [
+      'donation' => 'required',
+      'projects' => 'required',
+      'users' => 'required',
+
+      ]);
+
+      $donation = Donation::create($request->all());
+      return redirect('/sponsor/donation/' . $donation->id);
     }
 
     /**
@@ -44,9 +58,12 @@ class DonationsController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function show(Donation $donation)
+    public function show(Donation $donation, $id)
     {
-        //
+        $donation = Donation::find($id);
+      return view('website.donation.show', [
+        'donation' => $donation,
+      ]);
     }
 
     /**
@@ -55,9 +72,14 @@ class DonationsController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donation $donation)
+    public function edit(Donation $donation, $id)
     {
-        //
+        return view('sponsor.donation.edit',[
+            'donation' => Donation::findOrFail($id),
+
+            'project' => Auth::user()->projects,
+
+         ]);
     }
 
     /**
@@ -67,9 +89,19 @@ class DonationsController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Donation $donation)
+    public function update(Request $request, Donation $donation, $id)
     {
-        //
+        $this->validate ($request,
+      [
+        'donation' => 'required',
+        'projects' => 'required',
+        'users' => 'required',
+      ]);
+
+
+      $donation = Donation::find($id);
+      $donation->update($request->all());
+      return redirect('/donation/' . $donation->id);
     }
 
     /**
@@ -78,8 +110,11 @@ class DonationsController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Donation $donation)
+    public function destroy(Donation $donation, $id)
     {
-        //
+        $donation = Donation::findOrFail($id);
+        $donation->delete();
+
+        return redirect('/donations');
     }
 }

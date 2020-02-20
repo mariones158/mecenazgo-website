@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +9,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 //WEBSITE
 Route::get('/', 'WebsiteController@index');
@@ -40,11 +38,6 @@ Route::get('/projects/json', 'ProjectsController@listar');
 Route::get('/users/json', 'UsersController@listar');
 
 
-
-
-
-
-
 // LOS PATROCINADORES
     Route::group(['prefix' => 'sponsor', 'middleware' => 'auth'], function() {
     // PROFILE
@@ -56,43 +49,57 @@ Route::get('/users/json', 'UsersController@listar');
 	// Ruta para actualizar el perfil del usuario (metodo patch)
 
 
-    //DEPOSITOS(ingreso de dinero de los donantes)
-
-
-    Route::get('/deposits', 'DepositsController@show');
-    // Muestra TODOS los depositos de dinero a mi cuenta  (tus ingresos)
-
-    Route::patch('/deposit/confirm', 'DepositsController@update');
-    // Ruta para confirmar ingreso de dinero del aportante
-
-
-//TUVISTE EL INGRSO DE TAL USUARIO
-
-//DONACIONES
-    Route::get('/donation', 'DonationsController@index');
-    // Muestra TODOS las donaciones realizadas (tus donaciones)
-
-    Route::post('/donation', 'DonationsController@store');
+    //DONACIONES
+    Route::post('/donation/put', 'DonationsController@store');
     // Ruta para generar una nueva donacion (metodo post)
-
-    Route::get('/donation/{id}', 'DonationsController@show');
-    // Muestra la donacion de un proyecto
-
-    Route::patch('/donation/review', 'DonationsController@edit');
-    // Ruta es para editar la donacion final se utiliza el (metodo patch)
-
     Route::get('/donation/review', 'DonationsController@show');
-    // Ruta es para  poder ver la donacion final y poder confirmar o cancelar la donacion
-
+    // Muestra detalle de la donacion (tus donaciones)
+    Route::get('/donation/list', 'DonationsController@index');
+    // lista las donaciones
     Route::patch('/donation/confirm', 'DonationsController@update');
     // Ruta para confirmar la donacion  y poder cerrar la operacion
 
     Route::delete('/donation/confirm', 'DonationsController@destroy');
-        // Ruta para cancelar la donacion y anular la gestion
+    // Ruta para cancelar la donacion y anular la gestion
 
 });
 
 
+// LOS EMPRENDEDORES
+Route::group(['prefix' => 'entrepreneur', 'middleware' => 'auth'], function() {
+    // PROFILE
+    Route::get('/profile', 'UsersController@show');
+    // Ruta al perfil del usuario
+    Route::post('/profile/{id}/edit', 'UsersController@edit');
+    // Ruta para editar el perfil del usuario
+    Route::patch('/profile/{id}', 'UsersController@update');
+    // Ruta para actualizar el perfil del usuario (metodo patch)
+
+
+    //DEPOSITOS(ingreso de dinero de los donantes)
+
+    Route::get('/deposits', 'DepositsController@show');
+    // Muestra el detalle de los  ingresos  (tus ingresos)
+
+    Route::patch('/deposit/confirm', 'DepositsController@update');
+    // Ruta para confirmar  los ingresos
+
+// PROJECTS
+
+Route::get('/projects/add', 'ProjectsController@create');
+	// Ruta para crear un nuevo proyecto
+Route::post('/projects', 'ProjectsController@store');
+// Ruta para guardar un proyecto (metodo post)
+Route::get('/projects/{id}/edit', 'ProjectsController@edit');
+	// Ruta para editar un proyecto
+Route::patch('/projects/{id}', 'ProjectsController@update');
+// Ruta para actualizar un proyecto (metodo patch)
+Route::get('/projects/{id}/del', 'ProjectsController@delete');
+	// Ruta para eliminar un proyecto
+Route::delete('/projects/{id}', 'ProjectsController@destroy');
+	// Ruta para eliminar un Proyecto (metodo delete)
+
+});
 
 Auth::routes();
 
