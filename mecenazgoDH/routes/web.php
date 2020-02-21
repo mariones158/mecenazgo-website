@@ -38,9 +38,18 @@ Route::get('/projects/json', 'ProjectsController@listar');
 Route::get('/users/json', 'UsersController@listar');
 
 
+//USERS
+Route::get('/user', 'UsersController@index');
+	// Ruta para ver una lista de Usuarios y editar o eliminar
+
+
+
 // LOS PATROCINADORES
     Route::group(['prefix' => 'sponsor', 'middleware' => 'auth'], function() {
     // PROFILE
+
+    //Route::get('/user','UsersController')->name('user.index');//users
+
     Route::get('/profile', 'UsersController@show');
     // Ruta al perfil del usuario
     Route::post('/profile/{id}/edit', 'UsersController@edit');
@@ -68,6 +77,10 @@ Route::get('/users/json', 'UsersController@listar');
 // LOS EMPRENDEDORES
 Route::group(['prefix' => 'entrepreneur', 'middleware' => 'auth'], function() {
     // PROFILE
+
+    //Route::get('/user','UsersController')->name('user.index');//users
+
+
     Route::get('/profile', 'UsersController@show');
     // Ruta al perfil del usuario
     Route::post('/profile/{id}/edit', 'UsersController@edit');

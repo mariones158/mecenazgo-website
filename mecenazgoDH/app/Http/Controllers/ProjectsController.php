@@ -70,6 +70,8 @@ class ProjectsController extends Controller
 
         $project->name = $request->get('name');
 
+
+
         $project->title = $request->get('title');
 
         $project->image = $request->get('image');

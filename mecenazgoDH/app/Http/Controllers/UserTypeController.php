@@ -35,7 +35,11 @@ class UserTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_type = UserType::find($id);
+
+        $user_type->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
@@ -69,7 +73,11 @@ class UserTypeController extends Controller
      */
     public function update(Request $request, UserType $userType)
     {
-        //
+        $user_type = UserType::find($id);
+
+        $user_type->update($request->all());
+
+        return redirect()->back();
     }
 
     /**
