@@ -46,19 +46,19 @@ class User extends Authenticatable
     }
 
     public function userType(){
-        return $this->belongsTo('App\User_Type_id');
-     }
+        return $this->belongsTo('App\UserType');
+    }
 
-    public function project(){
-        return $this->belongsTo('App\Project_id');
-        }
+    public function projects(){
+        return $this->hasMany('App\Project');
+    }
 
     public function donations(){
-    return $this->hasMany('App\Donations_id');
+        return $this->belongsToMany('App\Project', 'donations');
     }
 
     public function deposits(){
-    return $this->hasMany('App\Deposits_id');
+        return $this->belongsTo('App\Deposit');
     }
 
 

@@ -25,7 +25,8 @@ class DepositsController extends Controller
      */
     public function create()
     {
-        //
+        //deposit cuenta  de ingreso a donde se destina dinero
+        //creame una cuenta  a donde le pueda enviar dinero
     }
 
     /**
@@ -36,7 +37,7 @@ class DepositsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //tiene q existir  el stor
     }
 
     /**

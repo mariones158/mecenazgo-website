@@ -15,7 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('user_type_id');
             $table->string('name');
             $table->string('firstname');
             $table->string('lastname');
@@ -24,6 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->decimal('amount', 5, 3);
+            $table->unsignedBigInteger('user_type_id');
+            $table->foreign('user_type_id')->references('id')->on('user_type');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

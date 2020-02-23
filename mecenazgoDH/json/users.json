@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "user_type_id": 0,
+        "code": "USER1452",
+        "firstname": "Mario",
+        "lastname": "castillo",
+        "email": "mariones158@gmail.com",
+        "password": "$2y$10$6CPvCiP3zz0pX1y8.qNFCuZDV6InVgfWQi51MZzOVcZc4OaLn2VaK",
+        "avatar": "uploads\/a11e1fd0433425951454de799dbc17d6.png",
+        "created_at": 1574914750,
+        "updated_at": 1574914750
+    }
+]

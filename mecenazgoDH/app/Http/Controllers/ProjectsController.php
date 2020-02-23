@@ -36,7 +36,7 @@ class ProjectsController extends Controller
     {
         return view('entrepreneur.projects.create',
 
-        ['projects' => Project::all(), 'proyecto' => new Project]);
+        ['proyecto' => new Project]);
     }
 
     /**
@@ -69,8 +69,6 @@ class ProjectsController extends Controller
         $project = new Project;
 
         $project->name = $request->get('name');
-
-
 
         $project->title = $request->get('title');
 
@@ -122,22 +120,6 @@ class ProjectsController extends Controller
 
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-    public function delete(Project $project, $id)
-    {
-        $product = Project::findOrFail($id);
-
-
-        return view('entrepreneur.projects.edit', ['project' => $project, 'title' => $project->title ]);
-    }
-
-
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -161,23 +143,6 @@ class ProjectsController extends Controller
 
         return redirect('projects/' . $project->id);
 
-    }
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Project $project, $id)
-    {
-
-
-        $project = Project::findOrFail($id);
-        $project->delete();
-
-        return redirect('/projects');
     }
 
 

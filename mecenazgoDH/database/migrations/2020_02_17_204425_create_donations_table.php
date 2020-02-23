@@ -19,8 +19,8 @@ class CreateDonationsTable extends Migration
             $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')->references('id')->on('projects');
 
-            $table->unsignedBigInteger('donation_id');
-            $table->foreign('donation_id')->references('id')->on('donations');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->decimal('amount', 5, 3);
 

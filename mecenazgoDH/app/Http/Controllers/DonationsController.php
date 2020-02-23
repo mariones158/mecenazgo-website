@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Donation;
-use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DonationsController extends Controller
@@ -40,13 +40,14 @@ class DonationsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate ($request,
-      [
-      'donation' => 'required',
-      'projects' => 'required',
-      'users' => 'required',
-
-      ]);
+        $this->validate (
+            $request,
+            [
+                'donation' => 'required',
+                'projects' => 'required',
+                'users' => 'required',
+            ]
+        );
 
       $donation = Donation::create($request->all());
       return redirect('/sponsor/donation/' . $donation->id);
@@ -58,7 +59,7 @@ class DonationsController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function show(Donation $donation, $id)
+    public function show(Donation $id)
     {
         $donation = Donation::find($id);
       return view('website.donation.show', [

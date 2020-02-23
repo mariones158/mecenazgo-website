@@ -16,15 +16,15 @@ class Project extends Model
     protected $table = 'projects';
 
     public function user(){
-    return $this->belongsTo('App\User_id');
+    return $this->belongsTo('App\User');
     }
 
     public function donations(){
-    return $this->hasMany('App\Donations_id');
+        return $this->belongsToMany('App\User', 'donations');
     }
 
     public function deposits(){
-        return $this->hasMany('App\Deposits_id');
+        return $this->hasMany('App\Deposit');
         }
 
 }

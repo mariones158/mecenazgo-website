@@ -7,15 +7,6 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -26,7 +17,7 @@ class HomeController extends Controller
     {
 
 
-        $topProjects = Project::orderBy('more_popular')->take(3)->get();
+        $topProjects = Project::orderBy('more_popular')->take(3)->get()->paginate(1);
 
 
        return view('home')->with('topProjects', $topProjects);

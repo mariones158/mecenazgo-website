@@ -42,8 +42,8 @@ class UsersController extends Controller
                 $user->save();
 
                // 'se ha registrado el ususario '. $user->name. ' de forma exitosa';
-                flash('Created user');
-                 return redirect('/');
+
+                 return redirect('/')->flash('Updated user');
     }
 
     /**
@@ -55,16 +55,8 @@ class UsersController extends Controller
     public function show(User $user, $id)
     {
         $user = User::find($id);
-        $useru = User::find($id)->wallets->where('deposits');
-        $useru->each(function($useru){
-            $useru->project;
-        });
-        $messages = Helping::where('to_id', $id)->get();
-        // to_id hacia un Id
-       //dd($useru);
-        return view('user.show')->with('user', $user)->with('messages', $messages)->with('useru', $useru);
+        return view('user.show')->with('user', $user);
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -99,18 +91,6 @@ class UsersController extends Controller
        $user->amount = $request->amount;
        $user->save();
 
-        flash('Updated user');
-        return redirect('/user/'.$id.'/edit');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(User $user)
-    {
-        //
+        return redirect('/user/'.$id.'/edit')->flash('Updated user');
     }
 }

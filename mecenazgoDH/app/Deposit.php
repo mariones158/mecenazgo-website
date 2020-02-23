@@ -7,27 +7,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Deposit extends Model
 {
-    protected $fillable = [];
+    protected $fillable = ["user_id","amount"];
+
     use SoftDeletes;
-//$fillable - $guarded
-    protected $table = 'deposits';
 
     public function users(){
-    return $this->belongsToMany('App\Users_id');
+        return $this->hasMany('App\User');
     }
 
-    public function donations(){
-    return $this->belongsToMany('App\Donations_id');
-}
-
-
-
-
-    //un deposito "ingreso" pertenece pertenece  a un usuario
-
-    //public function project(){
-    //return $this->belongsTo(Project::class, "project_id");
-    //}
-
-    //un deposito "ingreso" pertenece a un proyecto x usuario
 }

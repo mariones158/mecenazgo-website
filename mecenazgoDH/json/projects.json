@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "project_id": 4,
+        "discount_id": null,
+        "name": "Hueso inteligente",
+        "number_indetification": "OSS0719",
+        "image": "img\/OSS0719_huesoIntelligence.jpg",
+        "colour": "Crema",
+        "amount": 900,
+        "status": 1,
+        "description_detail": "",
+        "description_general": "proyecto pensado para perros , con el fin de entretener a tu mascota",
+        "description_title": "",
+        "created_at": 1574914750,
+        "updated_at": null
+    }
+]
