@@ -1,18 +1,15 @@
 [
     {
-        "id": 0,
-        "project_id": 4,
-        "discount_id": null,
-        "name": "Hueso inteligente",
-        "number_indetification": "OSS0719",
-        "image": "img\/OSS0719_huesoIntelligence.jpg",
+        "id": 1,
+        "name": "proyecto 1",
+        "code": "OSS0445",
+        "image": "img\/OSS0445_gadget2Pnt.jpg",
         "colour": "Crema",
-        "amount": 900,
         "status": 1,
         "description_detail": "",
-        "description_general": "proyecto pensado para perros , con el fin de entretener a tu mascota",
+        "description_general": "gadget para el hogar.",
         "description_title": "",
-        "created_at": 1574914750,
+        "created_at": 1153984750,
         "updated_at": null
-    }
+    },
 ]

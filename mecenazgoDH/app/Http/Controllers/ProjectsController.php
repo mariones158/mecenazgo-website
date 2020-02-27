@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Project;
 
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;  //
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Collection;
+
+
+
 
 
 class ProjectsController extends Controller
@@ -20,11 +22,11 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(10);
-
+        //$projects = Project::paginate(10);
+        $projects = Project::all()->take(3);
         //return view('projects.index', ['projects' => $projects, ]);
-
-        return view('projects.index',['proyectos' => Project::all()]);
+        return view('project.index')->with('projects', $projects);
+       ////// return view('projects.index',['proyectos' => Project::all()]);
     }
 
     /**
@@ -61,14 +63,13 @@ class ProjectsController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
 
-            $name = $request->name.'.'.$image->getClientOriginalExtension();
+            $title = $request->title.'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('/img/Projects');
-            $image->move($destinationPath, $name);
+            $image->move($destinationPath, $title);
         }
 
         $project = new Project;
 
-        $project->name = $request->get('name');
 
         $project->title = $request->get('title');
 
@@ -93,7 +94,7 @@ class ProjectsController extends Controller
 
         $project = Project::findOrFail($id);
 
-        return view('entrepreneur.products.show',
+        return view('entrepreneur.project:.show',
            [
             'project' => $project ,
            ]
@@ -112,6 +113,7 @@ class ProjectsController extends Controller
     public function edit(Project $project, $id)
     {
         $project = Project::findOrFail($id);
+
 
 
         return view('entrepreneur.projects.edit', ['project' => $project, 'title' => $project->title ]);

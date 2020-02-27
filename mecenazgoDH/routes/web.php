@@ -24,9 +24,9 @@ Route::get('/projects', 'ProjectController@index');
 //Muestra TODOS los proyectos
 Route::get('/project/{id}', 'ProjectsController@show');
 // Muestra detalle del proyecto
-Route::get('/projects/more', 'ProjectsController@more');
+///Route::get('/projects/more', 'ProjectsController@more');
 // Muestra los proyectos mas populares
-Route::get('/projects/less', 'ProjectsController@less');
+///Route::get('/projects/less', 'ProjectsController@less');
 // Muestra los proyectos menos populares
 
 

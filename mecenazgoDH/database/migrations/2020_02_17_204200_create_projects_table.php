@@ -18,6 +18,8 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('title', 100);
+            $table->integer('more_popular')->default(0);
+            $table->string('name');
             $table->string('image');
             $table->string('colour');
             $table->text('description');
