@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Project;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;  //
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Collection;
 
@@ -22,11 +22,11 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        //$projects = Project::paginate(10);
-        $projects = Project::all()->take(3);
-        //return view('projects.index', ['projects' => $projects, ]);
-        return view('project.index')->with('projects', $projects);
-       ////// return view('projects.index',['proyectos' => Project::all()]);
+        $projects = Project::paginate(10);
+        //$projects = Project::all()->take(3);
+        return view('projects.index', ['projects' => $projects, ]);
+       // return view('project.index')->with('projects', $projects);
+        return view('projects.index',['proyectos' => Project::all()]);
     }
 
     /**

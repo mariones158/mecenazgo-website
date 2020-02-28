@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('content')
+
+
 
 @section('title')
      listado proyectos
@@ -13,11 +16,7 @@
 
 @section('content')
 
-@if (isset($termino))
-    <h1>Se busco producto con el termino {{$termino}}</h1>
-@else
-    <h1>proyectos que necesitan un sponsor</h1>
-@endif
+
 
 <div class ="contenedor-proyecto">
     <div class= "row">
@@ -27,7 +26,7 @@
 
                         <div class="card" style="width: 18rem;">
                             @if (count($project->image) !== 0)
-                            <img class="card-img-top" src="{{ url("image/".$project->imagen[0]->source) }}" alt="Card image cap">
+                            <img class="card-img-top" src="{{ url("image/".$project->image[0]->source) }}" alt="Card image cap">
 
                             @else
                             <img class="card-img-top" src="{{ url("image/OSS0609_gadgetPlant.jpg") }}" alt="Card image cap">

@@ -14,7 +14,7 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        $products = Project::inRandomOrder()->limit(4)->get();
+        $projects = Project::inRandomOrder()->limit(4)->get();
 
 
         if(isset(session('project')->id)){
@@ -22,7 +22,7 @@ class WebsiteController extends Controller
             $cart = Project::find(session('project')->id);
             return view('website.index',
                 [
-                    'products' => $products ,
+                    'projects' => $projects ,
 
                 ]
             );
@@ -30,7 +30,7 @@ class WebsiteController extends Controller
 
             return view('website.index',
             [
-                'products' => $products ,
+                'projects' => $projects ,
 
             ]
         );

@@ -10,8 +10,18 @@
 |
 */
 
+
+
+route::get('/', function () {
+    return view('projects');
+});
+
+
+route::auth();
+
+
 //WEBSITE
-Route::get('/', 'WebsiteController@index');
+Route::get('/home', 'HomeController@index');
 // Ruta hacia el Home
 Route::get('/contact', 'WebsiteController@create');
 // Ruta para contacto a la pagina

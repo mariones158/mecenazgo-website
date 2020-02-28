@@ -8,20 +8,28 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
+        $projects = Project::inRandomOrder()->limit(4)->get();
 
 
-        $topProjects = Project::orderBy('more_popular')->take(3)->get()->paginate(1);
+        if(isset(session('project')->id)){
+
+            $cart = Project::find(session('project')->id);
+            return view('website.index',
+                [
+                    'projects' => $projects ,
+
+                ]
+            );
 
 
-       return view('home')->with('topProjects', $topProjects);
+            return view('website.index',
+            [
+                'projects' => $projects ,
 
-        //return view('home');
+            ]
+        );
     }
+}
 }
