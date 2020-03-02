@@ -21,7 +21,7 @@ class CreateProjectsTable extends Migration
             $table->integer('more_popular')->default(0);
             $table->string('name');
             $table->string('image');
-            $table->string('colour');
+            $table->string('colour')->nullable();
             $table->text('description');
             $table->decimal('amount', 5, 3);
             $table->boolean('status');

@@ -40,10 +40,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+/*
     public function getFullName() {
         return $this->firstname . ' ' . $this->lastname;
-    }
+    } */
 
     public function userType(){
         return $this->belongsTo('App\UserType');
@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     public function donations(){
-        return $this->belongsToMany('App\Project', 'donations');
+        return $this->hasMany('App\Project', 'donations');
     }
 
     public function deposits(){

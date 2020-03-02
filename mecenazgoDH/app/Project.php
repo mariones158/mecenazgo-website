@@ -20,11 +20,6 @@ class Project extends Model
     }
 
     public function donations(){
-        return $this->belongsToMany('App\User', 'donations');
+        return $this->hasMany('App\Donation');
     }
-
-    public function deposits(){
-        return $this->hasMany('App\Deposit');
-        }
-
 }

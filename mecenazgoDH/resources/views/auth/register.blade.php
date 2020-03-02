@@ -63,20 +63,24 @@
 
 
 
-                        <div class="form-group" col-md-6 d-flex ml-5">
+
+
+
+                     {{--   <div class="form-group" col-md-6 d-flex ml-5">
                             <label class="col-7" for="inputState">{{__('User type')}} </label>
                             <select id="inputState" class="form-control col-5" name"type">
-                            <option selected>sponsor</option>
-                            <option selected>entrepreneur</option>
+                       <option selected>entrepreneur</option>
                             </select>
-                            </div>
+                            </div> --}}
+
+
 
                             <div class="form- d-flex justify-content-center">
                                 <label class=" mr-4" for="avatar">{{__('foto avatar')}}</label>
 
                                 <input type="file" name="avatar" value="">
                                 </div>
-
+                                <br>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -73,10 +73,10 @@ class DonationsController extends Controller
      * @param  \App\Donation  $donation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Donation $donation, $id)
+    public function edit(Donation $donation)
     {
         return view('sponsor.donation.edit',[
-            'donation' => Donation::findOrFail($id),
+            'donation' => $donation,
 
             'project' => Auth::user()->projects,
 

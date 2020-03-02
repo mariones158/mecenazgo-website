@@ -11,17 +11,17 @@
 */
 
 
-
+/*
 route::get('/', function () {
     return view('projects');
-});
+}); */
 
 
 route::auth();
 
 
 //WEBSITE
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 // Ruta hacia el Home
 Route::get('/contact', 'WebsiteController@create');
 // Ruta para contacto a la pagina
@@ -30,7 +30,7 @@ Route::post('/contact', 'WebsiteController@store');
 
 
 //PROYECTOS
-Route::get('/projects', 'ProjectController@index');
+Route::get('/projects', 'ProjectsController@index');
 //Muestra TODOS los proyectos
 Route::get('/project/{id}', 'ProjectsController@show');
 // Muestra detalle del proyecto

@@ -22,11 +22,15 @@ class ProjectsController extends Controller
      */
     public function index()
     {
+        /*dd('here');*/
         $projects = Project::paginate(10);
-        //$projects = Project::all()->take(3);
-        return view('projects.index', ['projects' => $projects, ]);
-       // return view('project.index')->with('projects', $projects);
-        return view('projects.index',['proyectos' => Project::all()]);
+
+        return view('entrepreneur.index', ['entrepreneur' => $projects, ]);
+
+        /*
+        return view('projects.projects', ['projects' => $projects, ]); */
+
+
     }
 
     /**
@@ -36,9 +40,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        return view('entrepreneur.projects.create',
-
-        ['proyecto' => new Project]);
+        return view('entrepreneur.projects.create', ['proyecto' => new Project]);
     }
 
     /**
@@ -81,6 +83,9 @@ class ProjectsController extends Controller
 
         $project->save();
 
+        return redirect('website.index');
+
+        // Que hacemos despues de guardar ?
     }
 
     /**
@@ -114,9 +119,7 @@ class ProjectsController extends Controller
     {
         $project = Project::findOrFail($id);
 
-
-
-        return view('entrepreneur.projects.edit', ['project' => $project, 'title' => $project->title ]);
+        return view('entrepreneur.edit', ['project' => $project, 'title' => $project->title ]);
 
     }
 
