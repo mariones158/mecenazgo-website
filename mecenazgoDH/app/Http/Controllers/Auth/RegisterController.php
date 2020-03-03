@@ -53,7 +53,20 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            'avatar' => ['required'],
+            'user_type' => ['required'],
+        ],
+
+        $message = [
+            'required' => 'El campo es obligatorio',
+            'string' => 'El campo debe contener solo letras',
+            'unique:users' => 'El mail ya se encuentra registrado',
+            'email' => 'Ingrese un mail con formato usuario@email.com',
+            'min' => ['string' => 'La contraseña debe contener minimo 8 caracteres'],
+            'confirmed' => 'Las contraseñas no coinciden',
+
+            ]);
+
     }
 
     /**
@@ -72,11 +85,14 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'avatar' => $data['avatar']->store('public/uploads'),
-            'type' => $data['type'],
-
+            'avatar' => $data['avatar'],
+            'user_type' => $data['user_type'],
         ]);
 
+
+        /* $this->guard()->login($user);
+
+        return $user; */
 
     }
 }

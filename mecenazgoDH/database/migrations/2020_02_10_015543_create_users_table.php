@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
             $table->string('indenfication_number')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('avatar');
             $table->string('email')->unique();
             $table->string('password');
             $table->decimal('amount', 5, 3)->nullable();

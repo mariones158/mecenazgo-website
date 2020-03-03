@@ -89,7 +89,7 @@ Route::group(['prefix' => 'entrepreneur', 'middleware' => 'auth'], function() {
     // PROFILE
 
     //Route::get('/user','UsersController')->name('user.index');//users
-
+    Route::get('user', 'UserController@index');
 
     Route::get('/profile', 'UsersController@show');
     // Ruta al perfil del usuario

@@ -33,13 +33,13 @@ class UserTypeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        $user_type = UserType::find($id);
+       /*  $user_type = UserType::find($id);
 
         $user_type->update($request->all());
 
-        return redirect()->back();
+        return redirect()->back(); */// retornara  a la pagina de donde vino
     }
 
     /**
@@ -71,13 +71,13 @@ class UserTypeController extends Controller
      * @param  \App\UserType  $userType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserType $userType)
+    public function update(Request $request, UserType $userType ,$id)
     {
-        $user_type = UserType::find($id);
+       /*  $user_type = UserType::find($id);
 
         $user_type->update($request->all());
 
-        return redirect()->back();
+        return redirect()->back(); */
     }
 
     /**
