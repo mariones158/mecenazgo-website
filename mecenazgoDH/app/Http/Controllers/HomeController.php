@@ -2,37 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Project;
-use App\User;
-use App\contact;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index()
     {
-
-        $projects = Project::inRandomOrder()->limit(4)->get();
-
-
-        if(isset(session('project')->id)){
-
-            $cart = Project::find(session('project')->id);
-            return view('website.index',
-                [
-                    'projects' => $projects ,
-
-                ]
-            );
-
-
-            return view('website.index',
-            [
-                'projects' => $projects ,
-
-            ]
-        );
+        return view('home');
     }
-}
 }

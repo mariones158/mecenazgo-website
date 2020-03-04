@@ -30,7 +30,7 @@ class ProjectsController extends Controller
         /*
         return view('projects.projects', ['projects' => $projects, ]); */
         $projects = Project::paginate(4);
-        return view('website.index', [
+        return view('website.projects.index', [
             'title' => "Listado proyectos",
             'projects' => $projects,
 
@@ -90,7 +90,7 @@ class ProjectsController extends Controller
         $project->save();
 
 
-        return redirect('/entrepreneur/projects/list');
+        return redirect('projects/' . $project->id);
         // Que hacemos despues de guardar ?
     }
 

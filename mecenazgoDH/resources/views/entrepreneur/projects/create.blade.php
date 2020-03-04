@@ -10,9 +10,9 @@
     <div class="row">
         <div class="col">
             <h1> nuevo proyecto</h1>
-            @include('entrepreneur.form', [
+            @include('entrepreneur.projects.form', [
                 'method' => 'post',
-                'url' => '/entrepreneur/form/add'
+                'url' => '/entrepreneur/projects/add'
             ])
         </div>
     </div>

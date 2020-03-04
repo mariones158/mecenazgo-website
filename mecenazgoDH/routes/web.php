@@ -17,16 +17,15 @@ route::get('/', function () {
 }); */
 
 
-route::get('/', function () {
-    return view ('website.index');
-});
 
 
-route::auth();
 
+
+
+  Auth::routes();
 
 //WEBSITE
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'WebsiteController@index');
 // Ruta hacia el Home
 Route::get('/contact', 'WebsiteController@create');
 // Ruta para contacto a la pagina
@@ -105,8 +104,13 @@ Route::group(['prefix' => 'entrepreneur', 'middleware' => 'entrepreneur'], funct
     Route::patch('/profile/{id}', 'UsersController@update');
     // Ruta para actualizar el perfil del usuario (metodo patch)
 
+    Route::get('photo', 'PhotoController@index');
+    //
+    Route::get('photos/add', 'PhotoController@create');
+    //
 
-    //DEPOSITOS(ingreso de dinero de los donantes)
+
+     //DEPOSITOS(ingreso de dinero de los donantes)
 
     Route::get('/deposits', 'DepositsController@show');
     // Muestra el detalle de los  ingresos  (tus ingresos)

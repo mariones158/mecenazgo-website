@@ -22,4 +22,8 @@ class Project extends Model
     public function donations(){
         return $this->hasMany('App\Donation');
     }
+
+    public function photo(){
+        return $this->hasOne('App\Photo');
+    }
 }
