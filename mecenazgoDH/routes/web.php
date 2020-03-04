@@ -17,11 +17,16 @@ route::get('/', function () {
 }); */
 
 
+route::get('/', function () {
+    return view ('website.index');
+});
+
+
 route::auth();
 
 
 //WEBSITE
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 // Ruta hacia el Home
 Route::get('/contact', 'WebsiteController@create');
 // Ruta para contacto a la pagina
@@ -83,13 +88,15 @@ Route::get('/user', 'UsersController@index');
 
 });
 
+Route::get('user', 'UserController@index');
 
 // LOS EMPRENDEDORES
-Route::group(['prefix' => 'entrepreneur', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'entrepreneur', 'middleware' => 'entrepreneur'], function() {
+
+
     // PROFILE
 
     //Route::get('/user','UsersController')->name('user.index');//users
-    Route::get('user', 'UserController@index');
 
     Route::get('/profile', 'UsersController@show');
     // Ruta al perfil del usuario

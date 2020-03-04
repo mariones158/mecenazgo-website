@@ -29,8 +29,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
+    protected $redirectTo = '/';
+    /* protected $redirectTo = RouteServiceProvider::HOME; */
     /**
      * Create a new controller instance.
      *
@@ -90,7 +90,7 @@ class RegisterController extends Controller
         ]);
 
 
-        /* $this->guard()->login($user);
+   /*       $this->guard()->login($user);
 
         return $user; */
 

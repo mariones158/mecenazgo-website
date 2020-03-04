@@ -12,7 +12,6 @@
 
         <div class="panel-body">
             <!-- Display Validation Errors -->
-        @include('common.errors') <!--CODIGO PARA VER LOS ERRORES-->
 
 
         <form action="{{url ('projects')}}" method="POST">

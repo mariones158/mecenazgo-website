@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use App\Project;
+
 
 use Illuminate\Http\Request;
 
@@ -16,7 +16,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('website.index');
+        return view('user.index');
     }
 
     /**
@@ -92,6 +92,7 @@ class UsersController extends Controller
        $user->amount = $request->amount;
        $user->save();
 
-        return redirect('/user/'.$id.'/edit')->flash('Updated user');
+        /* return redirect('/user/'.$id.'/edit')->flash('Updated user'); */
+        return redirect('/user/' . $user->id);
     }
 }

@@ -12,7 +12,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        dd('here');
+
         $projects = Project::inRandomOrder()->limit(4)->get();
 
 

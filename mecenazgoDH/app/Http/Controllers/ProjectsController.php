@@ -23,13 +23,19 @@ class ProjectsController extends Controller
     public function index()
     {
         /*dd('here');*/
-        $projects = Project::paginate(10);
+        /* $projects = Project::paginate(10);
 
-        return view('entrepreneur.index', ['entrepreneur' => $projects, ]);
+        return view('website.index', ['website' => $projects, ]); */
 
         /*
         return view('projects.projects', ['projects' => $projects, ]); */
+        $projects = Project::paginate(4);
+        return view('website.index', [
+            'title' => "Listado proyectos",
+            'projects' => $projects,
 
+           /*  ->with('projects', $projects); */
+        ]);
 
     }
 
@@ -83,8 +89,8 @@ class ProjectsController extends Controller
 
         $project->save();
 
-        return redirect('website.index');
 
+        return redirect('/entrepreneur/projects/list');
         // Que hacemos despues de guardar ?
     }
 
@@ -99,7 +105,7 @@ class ProjectsController extends Controller
 
         $project = Project::findOrFail($id);
 
-        return view('entrepreneur.project:.show',
+        return view('entrepreneur.projects.show',
            [
             'project' => $project ,
            ]
@@ -146,7 +152,7 @@ class ProjectsController extends Controller
         $project = Project::find($id);
         $project->update($request->all());
 
-        return redirect('projects/' . $project->id);
+        return redirect('/entrepreneur/projects/list');
 
     }
 
