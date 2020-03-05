@@ -14,10 +14,11 @@ class WebsiteController extends Controller
 {
     public function index()
     {
-        $projects = Project::inRandomOrder()->limit(4)->get();
+        $projects = Project::All();
+        /* inRandomOrder()->limit(4)->get(); */
 
 
-            return view('website.index',
+            return view('website.projects.detail',
                 [
                     'projects' => $projects ,
 

@@ -23,8 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->decimal('amount', 5, 3)->nullable();
-            $table->unsignedBigInteger('user_type_id');
-            $table->foreign('user_type_id')->references('id')->on('user_type');
+            $table->string('user_type');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

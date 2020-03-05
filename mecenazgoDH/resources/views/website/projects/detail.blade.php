@@ -1,9 +1,7 @@
 @extends('layouts.app')
 
 
-@section('title')
-     listado productos
-@endsection
+
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/estyle.css') }}"/>

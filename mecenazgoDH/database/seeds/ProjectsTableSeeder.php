@@ -12,9 +12,9 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        $jsonString = file_get_contents(base_path('json/projects.json'));
+        /* $jsonString = file_get_contents(base_path('json/projects.json'));
 
-        $data = json_decode($jsonString);
+        $data = json_decode($jsonString); */
 
 
        foreach ($data as $key => $value) {

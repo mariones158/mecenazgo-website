@@ -17,11 +17,6 @@ route::get('/', function () {
 }); */
 
 
-
-
-
-
-
   Auth::routes();
 
 //WEBSITE
