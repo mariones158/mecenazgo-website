@@ -14,8 +14,8 @@ class PhotosTableSeeder extends Seeder
     public function run()
     {
         $photos = array(
-            ['source' => 'producto1.jpg','type' =>"product"],
-            ['source' => 'producto2.jpg','type' =>"product"],
+            ['source' => 'default.png','type' =>"project"],
+            ['source' => 'default.png','type' =>"project"],
 
         );
         foreach($photos as $photo)

@@ -13,8 +13,8 @@
 @section('content')
 
 
-{{--
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+ <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -44,7 +44,7 @@
       </a>
     </div>
 
- --}}
+
 
 
     <section class="proyectos-cont">
@@ -53,8 +53,8 @@
           <article class="proyecto">
             <div class="proyecto-photo">
                 <a href="/projects/{{ $project->id }}">
-                  @foreach ($project->photos as $photo)
-                  <img  class="productPhotosHover" class="img-fluid" src="/img/projects/{{$photo->filename}}"
+                  @foreach ($photos as $photo)
+                  <img  class="projectPhotos" class="img-fluid" src="/img/{{$photo->source}}"
                                 alt="">
                   @endforeach
               </a>

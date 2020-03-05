@@ -22,20 +22,20 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        /*dd('here');*/
+        *dd('here');
         /* $projects = Project::paginate(10);
 
         return view('website.index', ['website' => $projects, ]); */
 
         /*
         return view('projects.projects', ['projects' => $projects, ]); */
-        $projects = Project::paginate(4);
+
+      /*   $projects = Project::paginate(4);
         return view('website.projects.index', [
             'title' => "Listado proyectos",
             'projects' => $projects,
 
-           /*  ->with('projects', $projects); */
-        ]);
+        ]); */
 
     }
 
@@ -152,7 +152,7 @@ class ProjectsController extends Controller
         $project = Project::find($id);
         $project->update($request->all());
 
-        return redirect('/entrepreneur/projects/list');
+        return redirect('/entrepreneur/projects');
 
     }
 

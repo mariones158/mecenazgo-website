@@ -24,7 +24,6 @@ class CreateProjectsTable extends Migration
             $table->string('colour')->nullable();
             $table->text('description');
             $table->decimal('amount', 5, 3);
-            $table->boolean('status');
             $table->text('description_detail')->nullable();
             $table->text('description_general')->nullable();
             $table->string('description_title')->nullable();

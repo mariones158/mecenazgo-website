@@ -17,17 +17,12 @@ $factory->define(App\Project::class, function (Faker $faker) {
         'name' => $faker->text(15),
         'title'=> $faker->text(15),
         'description'=>$faker->paragraph($nbSentences = 3, $variableNbSentences = true),
-        'amount'=>$faker->randomFloat(2,1,1000),
+        'amount'=>$faker->numberBetween(1,10),
         'image' => $faker->imageUrl(640,480),
         'colour' => $faker->colorName,
-        'status' => $faker->numberBetween(0,1),
         'description_detail' => $faker->paragraph,
         'description_general' => $faker->text(200),
         'description_title' => $faker->sentence(4),
-
-
-
-
 
     ];
 });

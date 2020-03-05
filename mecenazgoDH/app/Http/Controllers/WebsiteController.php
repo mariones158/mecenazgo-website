@@ -18,7 +18,7 @@ class WebsiteController extends Controller
         /* inRandomOrder()->limit(4)->get(); */
 
 
-            return view('website.projects.detail',
+            return view('website.index',
                 [
                     'projects' => $projects ,
 

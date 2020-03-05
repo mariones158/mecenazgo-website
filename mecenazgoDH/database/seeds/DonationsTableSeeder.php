@@ -19,7 +19,7 @@ class DonationsTableSeeder extends Seeder
 
 
         foreach ($data as $key => $value) {
-            DB::table('donations')->insert([
+        DB::table('donations')->insert([
         'project_id' => 1,
         'donation_id' => 3,
         'amount' => $value->randomFloat(2,999,99999),

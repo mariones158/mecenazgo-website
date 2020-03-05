@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Project;
+
 use Illuminate\Support\Facades\DB;
 
 class ProjectsTableSeeder extends Seeder
@@ -12,25 +14,22 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        /* $jsonString = file_get_contents(base_path('json/projects.json'));
 
-        $data = json_decode($jsonString); */
+        DB::table('projects') ->insert([
+               'user_id' => '1',
+               'name' => 'prototipo',
+               'title' => 'gadget',
+               'image' => 'img/OSS0609_gadgetPlant.jpg',
+               'colour' => 'green',
+               'description' => 'gadget para el hogar',
+               'amount'=> '30',
 
 
-       foreach ($data as $key => $value) {
-            DB::table('projects')->insert([
-                'user_id' => $value->user_id,
-                'title' => $value->title,
-                'image' => $value->image,
-                'colour' => $value->colour,
-                'description' => $value->description,
-                'amount' => $value->amount,
-                'status' => $value->status,
-                'description_detail' => $value->description_detail,
-                'description_general' => $value->description_general,
-                'description_title' => $value->description_title,
-                'created_at' => date('Y-m-d H:i:s', $value->created_at),
             ]);
+
+            factory(\App\Project::class,10)->create();
+
+
          }
     }
-}
+

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 use Illuminate\Support\Facades\DB;
 use Faker\Factory as Faker;
 
@@ -13,26 +14,26 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $jsonString = file_get_contents(base_path('json/projects.json'));
 
-        $data = json_decode($jsonString);
+    /*     User::insert([
+            "name" => 'entrepreneur',
+            "password" => bcrypt('12345678'),
+            "email" => 'entrepreneur@mecenazgo.com',
+            "user_type" => 1,
+
+            ]);
 
 
+            User::insert([
+                "name" => 'sponsor',
+                "password" => bcrypt('12345678'),
+                "email" => 'sponsor@mecenazgo.com',
+                "user_type" => 1,
+              ]); */
 
-       foreach ($data as $key => $value) {
-        DB::table('users')->insert([
-            'name' => $value->name,
-            'firstname' => $value->firstname,
-            'lastname' => $value->lastname,
-            'identification_number' => $value->identification_number,
-            'description' => $value->description,
-            'avatar' => $value->avatar,
-            'email' => $value->email,
-            'password' => $value->password,
-            'amount' => $value->amount,
-            'user_type_id' =>$value->user_type_id,
-             ]);
+              factory(\App\User::class,10)->create();
 
     }
   }
-}
+
+
