@@ -52,12 +52,13 @@
 
           <article class="proyecto">
             <div class="proyecto-photo">
-                <a href="/projects/{{ $project->id }}">
-                  @foreach ($photos as $photo)
-                  <img  class="projectPhotos" class="img-fluid" src="/img/{{$photo->source}}"
-                                alt="">
-                  @endforeach
-              </a>
+            <a href="/projects/{{ $project->id }}">
+                @if ($project->photo_id != "")
+                    <img src="{{asset("/img/projects/".$project->photo->source)}}" class="img-fluid" alt="{{ $project->name }}">
+                @else
+                    No tiene Foto
+                @endif
+            </a>
 
             </div>
             <h2><a href="/projects/{{ $project->id }}">{{ $project->name }}</a></h2>

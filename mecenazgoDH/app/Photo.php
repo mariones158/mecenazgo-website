@@ -9,6 +9,6 @@ class Photo extends Model
     protected $fillable = ['source', 'type'];
 
     public function projects() {
-      return $this->belongsTo('App\Project');
+      return $this->hasMany('App\Project');
     }
 }

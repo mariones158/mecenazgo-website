@@ -27,6 +27,8 @@ class CreateProjectsTable extends Migration
             $table->text('description_detail')->nullable();
             $table->text('description_general')->nullable();
             $table->string('description_title')->nullable();
+            $table->unsignedBigInteger('photo_id')->nullable();
+            $table->foreign('photo_id')->references('id')->on('photos');
             $table->timestamps();
 
         });

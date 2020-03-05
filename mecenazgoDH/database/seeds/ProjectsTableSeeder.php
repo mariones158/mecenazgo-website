@@ -24,7 +24,6 @@ class ProjectsTableSeeder extends Seeder
                'description' => 'gadget para el hogar',
                'amount'=> '30',
 
-
             ]);
 
             factory(\App\Project::class,10)->create();

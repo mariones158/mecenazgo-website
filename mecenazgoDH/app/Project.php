@@ -9,7 +9,7 @@ class Project extends Model
     protected $fillable = [
         'user_id', 'title', 'image', 'colour', 'description',
         'amount', 'status', 'description_detail', 'description_general',
-        'description_title'
+        'description_title','photo_id'
     ];
 
 
@@ -24,6 +24,6 @@ class Project extends Model
     }
 
     public function photo(){
-        return $this->hasOne('App\Photo');
+        return $this->belongsTo('App\Photo');
     }
 }

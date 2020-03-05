@@ -17,7 +17,7 @@
     @if (count($project->photos) !== 0)
         @foreach ($project->photos as $photo )
             <img src="{{ url("img/".$photo->source) }}" alt="" >
-        @endforeach
+        @endforeach   revisar  codigo
     @else
         <img class="card-img-top" src="{{ url("img/default.png") }}" alt="Card image cap">
     @endif

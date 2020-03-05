@@ -85,7 +85,7 @@ Route::get('/user', 'UsersController@index');
 Route::get('user', 'UserController@index');
 
 // LOS EMPRENDEDORES
-Route::group(['prefix' => 'entrepreneur', 'middleware' => 'entrepreneur'], function() {
+Route::group(['prefix' => 'entrepreneur'], function() {
 
 
     // PROFILE
