@@ -18,11 +18,22 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css')
+
+    <style>
+        .bg-home{
+          background-image: url("img/textura.jpg");
+          background-repeat: repeat;
+
+        }
+
+        </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Mecenazgo
@@ -37,9 +48,30 @@
 
                     </ul>
 
+                    <li class="nav-item dropdown mr-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Generar Proyecto
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="/entrepreneur/projects/add">Agregar</a>
+                        </div>
+                      </li>
+
+
+
+
+                  {{--   @if (Auth::user()->user_type_id == 0)
+                    <li class="nav-item">
+                        <a class="nav-link" href="/entrepreneur/projects/add">Nuevo proyecto</a>
+                    </li> --}}
+
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
+
+
 
 
                         @guest
@@ -80,4 +112,30 @@
         </main>
     </div>
 </body>
+
+<footer class="container-fluid p-5 m-0 bg-primary text-white">
+    <div class="row justify-content-around">
+        <h3>Mecenazgo</h3>
+        <p>&copy Copyright - 2019</p>
+        <div class="row justify-content-around">
+            <div class="col-3">
+                <a href="http://" class="text-white" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-2x fa-facebook"></i>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="http://" class="text-white" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-2x fa-twitter"></i>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="http://" class="text-white" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-2x fa-instagram"></i>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+</footer>
 </html>

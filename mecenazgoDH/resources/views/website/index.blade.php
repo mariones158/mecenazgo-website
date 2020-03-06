@@ -47,6 +47,7 @@
 
 
 
+
     <section class="proyectos-cont">
         @foreach ($projects as $project)
 
@@ -65,11 +66,12 @@
 
 
             <a class="verMas" href="/projects/{{ $project->id }}">Ver más</a>
+
+
+
           </article>
         @endforeach
       </section>
-
-
 
 
 

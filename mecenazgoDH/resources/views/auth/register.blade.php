@@ -66,12 +66,13 @@
 
 
 
-                     {{--   <div class="form-group" col-md-6 d-flex ml-5">
+                      {{--   <div class="form-group" col-md-6 d-flex ml-5">
                             <label class="col-7" for="inputState">{{__('User type')}} </label>
                             <select id="inputState" class="form-control col-5" name"type">
                        <option selected>entrepreneur</option>
                             </select>
-                            </div> --}}
+                            </div>  --}}
+
 
 
 

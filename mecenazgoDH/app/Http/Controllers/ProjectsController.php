@@ -51,6 +51,8 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $this->validate ($request,
         [
         'name' => 'required',
@@ -84,7 +86,8 @@ class ProjectsController extends Controller
         $project->save();
 
 
-        return redirect('projects/' . $project->id);
+       /*  return redirect('projects/' . $project->id); */
+        return request()->all;
         // Que hacemos despues de guardar ?
     }
 
@@ -99,7 +102,7 @@ class ProjectsController extends Controller
 
         $project = Project::findOrFail($id);
 
-        return view('entrepreneur.projects.show',
+        return view('website.projects.show',
            [
             'project' => $project ,
            ]

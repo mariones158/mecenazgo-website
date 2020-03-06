@@ -31,8 +31,13 @@ Route::post('/contact', 'WebsiteController@store');
 //PROYECTOS
 Route::get('/projects', 'ProjectsController@index');
 //Muestra TODOS los proyectos
-Route::get('/project/{id}', 'ProjectsController@show');
+Route::get('/projects/{id}', 'ProjectsController@show');
 // Muestra detalle del proyecto
+
+
+
+
+
 ///Route::get('/projects/more', 'ProjectsController@more');
 // Muestra los proyectos mas populares
 ///Route::get('/projects/less', 'ProjectsController@less');
@@ -85,7 +90,8 @@ Route::get('/user', 'UsersController@index');
 Route::get('user', 'UserController@index');
 
 // LOS EMPRENDEDORES
-Route::group(['prefix' => 'entrepreneur'], function() {
+
+Route::group(['prefix' => 'entrepreneur','middleware' => 'auth'], function() {
 
 
     // PROFILE
@@ -116,9 +122,16 @@ Route::group(['prefix' => 'entrepreneur'], function() {
 // PROJECTS
 
 Route::get('/projects/add', 'ProjectsController@create');
-	// Ruta para crear un nuevo proyecto
+    // Ruta para crear un nuevo proyecto //
+
+
+
 Route::post('/projects', 'ProjectsController@store');
 // Ruta para guardar un proyecto (metodo post)
+
+
+
+
 Route::get('/projects/{id}/edit', 'ProjectsController@edit');
 	// Ruta para editar un proyecto
 Route::patch('/projects/{id}', 'ProjectsController@update');

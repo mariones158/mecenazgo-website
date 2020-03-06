@@ -1,43 +1,47 @@
 @extends('layouts.app')
 
 
-@section('title','Producto '.$project->name)
+@section('title','Proyecto '.$project->name)
 
 
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/estyle.css') }}"/>
 @endsection
 
-@section('content')
 
+    @section('content')
+      <div class="proyecto d-block" id="proyecto1">
 
-<div class="card">
-    <h1>{{$project->name}}</h1>
-    <p>{{$project->description}}</p>
-    @if (count($project->photos) !== 0)
-        @foreach ($project->photos as $photo )
-            <img src="{{ url("img/".$photo->source) }}" alt="" >
-        @endforeach   revisar  codigo
-    @else
-        <img class="card-img-top" src="{{ url("img/default.png") }}" alt="Card image cap">
-    @endif
+          <div class="titulo">
+            <h1>{{$project->title}}</h1>
+          </div>
+
+          <div class="">
+            <h6>{{$project->description}}</h6>
+          </div>
+
+      </div>
+
 
     {{-- @auth
 
-    @if (Auth::user()->role_id == 0)
+    @if (Auth::user()->user_type_id == 0)
     <a href="/entrepreneur/project/{{$project->id}}/edit">
         Editar
     </a>
 
+<form action="/entrepreneur/project/{{$project->id}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('edit')
+    <button class="btn btn-sm btn-outline-dark">editar</button>
+</form>
 
 
-
-        @endif
-
-    @endauth --}}
-
-
+@endauth --}}
 
 
 </div>
 @endsection
+
+
+
